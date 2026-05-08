@@ -159,7 +159,6 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
   color: var(--color-rose);
 }
 
-/* ── Carousel wrapper ──────────────────── */
 .photos__wrap {
   position: relative;
   width: 100%;
@@ -204,7 +203,6 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
   transform: scale(1.03);
 }
 
-/* ── Navigation buttons ─────────────────── */
 .photos__btn {
   flex-shrink: 0;
   width: 44px;
@@ -228,7 +226,6 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
   transform: scale(1.08);
 }
 
-/* ── Dots ────────────────────────────────── */
 .photos__dots {
   display: flex;
   gap: var(--sp-1);

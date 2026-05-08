@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          // Apply saved theme before first paint to prevent background flash
+          // Применяем тему до первой отрисовки — иначе мигает фон
           innerHTML: `(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('wedding-theme')==='dark'?'dark':'light')})()`,
         }
       ]

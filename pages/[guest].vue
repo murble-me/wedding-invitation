@@ -3,13 +3,11 @@ import { onMounted } from 'vue'
 import { useTheme } from '~/composables/useTheme'
 import { useScrollReveal } from '~/composables/useScrollReveal'
 
-// guests.json is gitignored — lives only locally for the real deployment
+// guests.json в .gitignore — только для локального деплоя
 let guests: Record<string, string> = {}
 try {
   guests = (await import('~/guests.json')).default as Record<string, string>
-} catch {
-  // File not present in public repo — gracefully degrade
-}
+} catch {}
 
 const route = useRoute()
 const guestSlug = route.params.guest as string

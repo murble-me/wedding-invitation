@@ -5,20 +5,18 @@ import { useSparkler } from '~/composables/useSparkler'
 const { progress, showFireworks } = useSparkler()
 
 const containerRef = ref<HTMLElement | null>(null)
-const svgRef       = ref<SVGSVGElement | null>(null)
-const pathRef      = ref<SVGPathElement | null>(null)
+const svgRef = ref<SVGSVGElement | null>(null)
+const pathRef = ref<SVGPathElement | null>(null)
 
 const totalLength = ref(30000)
-const isReady     = ref(false)
-const containerH  = ref(8000)
-const sparkCssX   = ref(0)
-const sparkCssY   = ref(0)
+const isReady = ref(false)
+const containerH = ref(8000)
+const sparkCssX = ref(0)
+const sparkCssY = ref(0)
 
 const VB_W = 1440
 const VB_H = 6500
 
-// 8 S-curves, then a smooth arc arriving horizontally at page center.
-// CP2 is at the same y as the endpoint — path arrives tangentially, no swirl at the tip.
 const SPARK_PATH =
   'M 380,0 ' +
   'C 900,200 1620,60 1380,500 ' +
@@ -37,35 +35,34 @@ const SPARK_COLORS = [
   '#fff5e0', '#ffe0f0',
 ]
 
-// Wave 1 — 24 rays, immediate burst
+// волны "салюта"
 const wave1 = Array.from({ length: 24 }, (_, i) => {
   const angle = (i / 24) * Math.PI * 2
-  const dist  = 30 + (i % 5) * 10
+  const dist = 30 + (i % 5) * 10
   return {
-    x:     Math.round(Math.cos(angle) * dist),
-    y:     Math.round(Math.sin(angle) * dist),
+    x: Math.round(Math.cos(angle) * dist),
+    y: Math.round(Math.sin(angle) * dist),
     color: SPARK_COLORS[i % SPARK_COLORS.length],
     delay: (i % 6) * 18,
-    w:     2,
-    h:     10 + (i % 4) * 4,
-    dur:   600 + (i % 3) * 140,
-    rot:   Math.round(angle * 180 / Math.PI),
+    w: 2,
+    h: 10 + (i % 4) * 4,
+    dur: 600 + (i % 3) * 140,
+    rot: Math.round(angle * 180 / Math.PI),
   }
 })
 
-// Wave 2 — 16 rays, ~400ms after first burst
 const wave2 = Array.from({ length: 16 }, (_, i) => {
   const angle = (i / 16) * Math.PI * 2 + Math.PI / 16
-  const dist  = 25 + (i % 4) * 12
+  const dist = 25 + (i % 4) * 12
   return {
-    x:     Math.round(Math.cos(angle) * dist),
-    y:     Math.round(Math.sin(angle) * dist),
+    x: Math.round(Math.cos(angle) * dist),
+    y: Math.round(Math.sin(angle) * dist),
     color: SPARK_COLORS[(i + 2) % SPARK_COLORS.length],
     delay: 400 + (i % 5) * 25,
-    w:     2,
-    h:     8 + (i % 3) * 3,
-    dur:   550 + (i % 2) * 80,
-    rot:   Math.round(angle * 180 / Math.PI),
+    w: 2,
+    h: 8 + (i % 3) * 3,
+    dur: 550 + (i % 2) * 80,
+    rot: Math.round(angle * 180 / Math.PI),
   }
 })
 
@@ -73,7 +70,7 @@ const allSparks = [...wave1, ...wave2]
 
 const dashOffset = computed(() => totalLength.value * (1 - progress.value))
 const showSparkHead = computed(() => progress.value > 0.004 && progress.value < 1)
-const isAtEnd       = computed(() => progress.value >= 1)
+const isAtEnd = computed(() => progress.value >= 1)
 
 let ro: ResizeObserver | null = null
 
@@ -138,7 +135,6 @@ watch(progress, (p) => {
         </filter>
       </defs>
 
-      <!-- Unburned guide -->
       <path
         :d="SPARK_PATH"
         fill="none"
@@ -148,7 +144,6 @@ watch(progress, (p) => {
         stroke-dasharray="5 16"
       />
 
-      <!-- Burned trail -->
       <path
         ref="pathRef"
         :d="SPARK_PATH"

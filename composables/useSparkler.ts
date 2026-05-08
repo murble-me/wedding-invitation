@@ -8,8 +8,7 @@ export function useSparkler() {
   function update() {
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight
     const raw = maxScroll > 0 ? window.scrollY / maxScroll : 0
-    // 1.25× multiplier so the path completes by ~80% of scroll,
-    // keeping the spark head visually in sync with the viewport center.
+
     progress.value = Math.min(raw * 1.25, 1)
     showFireworks.value = progress.value >= 1
   }

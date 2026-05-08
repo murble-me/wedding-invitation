@@ -1,6 +1,4 @@
-/* ===== Design Tokens ===== */
 :root {
-  /* Palette */
   --color-ivory: #FAF8F5;
   --color-champagne: #f8edbd;
   --color-rose: #C4849A;
@@ -11,7 +9,6 @@
   --color-blue: #467cbb;
   --color-mauve: #5C3D4E;
 
-  /* Semantic */
   --color-text: #2C1E3D;
   --color-text-muted: #7A6B8A;
   --color-text-on-dark: rgba(255, 255, 255, 0.92);
@@ -24,7 +21,6 @@
   --color-bg-alt: rgba(255, 255, 255, 0.12);
   --color-bg-card: rgba(255, 255, 255, 0.65);
 
-  /* Glass — weightless glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.07);
   --glass-bg-strong: rgba(255, 255, 255, 0.13);
   --glass-border: 1px solid rgba(255, 255, 255, 0.42);
@@ -39,14 +35,10 @@
     inset 1px 0 0 rgba(255, 255, 255, 0.22),
     inset -1px 0 0 rgba(255, 255, 255, 0.08);
 
-  /* Typography */
   --font-display: 'Great Vibes', cursive;
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Montserrat', system-ui, sans-serif;
-  /* Alias for legacy components */
-  --font-serif: var(--font-heading);
 
-  /* Spacing (8px grid) */
   --sp-1: 8px;
   --sp-2: 16px;
   --sp-3: 24px;
@@ -56,21 +48,16 @@
   --sp-8: 64px;
   --sp-10: 80px;
 
-  /* Shape */
   --radius: 32px;
   --radius-sm: 10px;
   --radius-xs: 6px;
   --radius-full: 9999px;
 
-  /* Motion */
   --transition: all 0.25s ease;
   --shadow-sm: 0 2px 12px rgba(92, 61, 78, 0.10);
   --shadow: 0 4px 24px rgba(92, 61, 78, 0.14);
   --shadow-lg: 0 8px 40px rgba(92, 61, 78, 0.22);
 
-  /* Section backgrounds (legacy aliases) */
-  --section-rsvp: transparent;
-  --section-footer: transparent;
 }
 
 [data-theme='dark'] {
@@ -93,7 +80,6 @@
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.55);
 }
 
-/* ===== Reset & Base ===== */
 *,
 *::before,
 *::after {
@@ -122,7 +108,7 @@ body {
   background-color: #1c1228;
 }
 
-/* Fixed gradient layer — unaffected by backdrop-filter compositing */
+/* фиксированный слой — вне compositing от backdrop-filter */
 body::before {
   content: '';
   position: fixed;
@@ -168,7 +154,6 @@ select {
   font-size: inherit;
 }
 
-/* ===== Glass Card Utility ===== */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -182,7 +167,6 @@ select {
   background: var(--glass-bg-strong);
 }
 
-/* ===== Scroll Reveal ===== */
 .reveal {
   opacity: 0.55;
   transform: translateY(16px);
@@ -214,13 +198,11 @@ select {
   transition-delay: 0.68s;
 }
 
-/* ===== Section Base ===== */
 .section {
   padding: var(--sp-10) var(--sp-3);
   position: relative;
 }
 
-/* ===== Typography Scale ===== */
 .heading-display {
   font-family: var(--font-display);
   font-weight: 400;
@@ -241,7 +223,6 @@ select {
   font-style: italic;
 }
 
-/* ===== Buttons ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -300,7 +281,6 @@ select {
   box-shadow: var(--shadow);
 }
 
-/* ===== Divider ===== */
 .divider {
   width: 48px;
   height: 1px;
@@ -308,7 +288,6 @@ select {
   margin: 0 auto;
 }
 
-/* ===== Utilities ===== */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -321,7 +300,6 @@ select {
   border-width: 0;
 }
 
-/* ===== Animations ===== */
 @keyframes fadeInDown {
   from {
     opacity: 0;

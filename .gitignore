@@ -24,5 +24,4 @@ logs
 .env.*
 !.env.example
 
-# Personal guest data
-guests.json
+# Personal guest data — committed as empty stub, local version protected via skip-worktree

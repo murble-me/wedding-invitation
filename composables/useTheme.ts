@@ -1,6 +1,5 @@
 import { ref } from 'vue'
 
-// Singleton ref — shared across all component instances
 const isDark = ref(false)
 
 export function useTheme() {
