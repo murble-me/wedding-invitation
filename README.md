@@ -4,7 +4,7 @@
 
 ## Демо
 
-[Открыть демо](https://your-vercel-url.vercel.app)
+[Открыть демо](https://wedding-sage-seven.vercel.app)
 
 ---
 
