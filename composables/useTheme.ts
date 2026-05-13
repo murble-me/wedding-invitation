@@ -5,7 +5,8 @@ const isDark = ref(false)
 export function useTheme() {
   function init() {
     if (!import.meta.client) return
-    isDark.value = localStorage.getItem('wedding-theme') === 'dark'
+    const saved = localStorage.getItem('wedding-theme')
+    isDark.value = saved === null ? true : saved === 'dark'
     applyTheme()
   }
 
