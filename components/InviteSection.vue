@@ -5,7 +5,7 @@ const props = withDefaults(defineProps<{
   guestName?: string
   isLonelyGuest?: boolean
 }>(), {
-  guestName: undefined,
+  guestName: 'Дорогие Мама и Папа',
   isLonelyGuest: false
 })
 
