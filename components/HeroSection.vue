@@ -2,7 +2,7 @@
 import { useCountdown } from '~/composables/useCountdown'
 import fonUrl from '~/assets/images/fon.jpg'
 
-const WEDDING_DATE = '2025-08-24T17:00:00'
+const WEDDING_DATE = '2026-08-24T17:00:00'
 const { timeLeft } = useCountdown(WEDDING_DATE)
 
 function pad(n: number): string {
@@ -42,7 +42,7 @@ function pad(n: number): string {
 
       <div class="hero__info">
         <div class="hero__event">
-          <p class="hero__date">24 августа 2025</p>
+          <p class="hero__date">24 августа 2026</p>
           <p class="hero__time">начало в 16:30 · Зал «Звёздный»</p>
         </div>
 
